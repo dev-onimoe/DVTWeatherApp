@@ -48,7 +48,7 @@ jobs:
           sdkmanager "build-tools;33.0.2"
 
       - name: Build APK
-        run: flutter build apk --debug
+        run: flutter build apk --debug --dart-define=OPEN_WEATHER_API_KEY=${{ secrets.OPEN_WEATHER_API_KEY || 'ci_dummy_key' }}
 
       - name: Run tests
-        run: flutter test --coverage
+        run: flutter test --coverage --dart-define=OPEN_WEATHER_API_KEY=ci_dummy_key

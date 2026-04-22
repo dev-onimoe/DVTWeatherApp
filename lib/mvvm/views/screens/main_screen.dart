@@ -7,6 +7,7 @@ import '../../../helpers/app_assets.dart';
 import '../../models/forecast_item.dart';
 import '../../view_models/forecast_bloc.dart';
 import '../helper_views/temperature_card.dart';
+import '../helper_views/error_view.dart';
 
 class MainScreen extends StatefulWidget {
   final ForecastBloc bloc;
@@ -46,7 +47,10 @@ class _MainScreenState extends State<MainScreen> {
 
         if (state.error != null) {
           return Scaffold(
-            body: Center(child: Text(state.error!)),
+            body: ErrorView(
+              errorMessage: state.error!,
+              onRetry: () => widget.bloc.fetchUsingCity(),
+            ),
           );
         }
 
