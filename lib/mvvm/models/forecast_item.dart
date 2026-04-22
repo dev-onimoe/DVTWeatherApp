@@ -9,6 +9,8 @@ class ForecastItem {
     required this.date,
   });
 
+  Weather get weather => Weather.fromTemp(main.temp);
+
   factory ForecastItem.fromJson(Map<String, dynamic> json) {
     final rawDate = json['dt_txt'] as String;
 
@@ -30,5 +32,21 @@ class ForecastItem {
     ];
 
     return days[date.weekday - 1];
+  }
+}
+
+enum Weather {
+  cloudy,
+  sunny,
+  rainy;
+
+  static Weather fromTemp(double temp) {
+    if (temp >= 25) {
+      return Weather.sunny;
+    } else if (temp >= 20) {
+      return Weather.cloudy;
+    } else {
+      return Weather.rainy;
+    }
   }
 }

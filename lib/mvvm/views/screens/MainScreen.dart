@@ -4,6 +4,7 @@ import 'package:flutter_assessment/helpers/view_helpers/textstyle_helpers.dart';
 import 'package:flutter_assessment/mvvm/view_models/forecast_state.dart';
 
 import '../../../helpers/app_assets.dart';
+import '../../models/forecast_item.dart';
 import '../../view_models/forecast_bloc.dart';
 import '../helper_views/temperature_card.dart';
 
@@ -50,12 +51,17 @@ class _MainScreenState extends State<MainScreen> {
         }
 
         final forecast = state.data!;
+        final todaysForecast = forecast.items.first;
+
         return Scaffold(
           body: Stack(
             children: [
               Container(
                 constraints: AppBoxConstraint.fullScreen,
-                child: Image.asset(Background.sunny, fit: BoxFit.cover),
+                child: Image.asset(
+                    todaysForecast.weather == Weather.sunny ? Background.sunny : (todaysForecast.weather == Weather.cloudy ? Background.cloudy : Background.rainy),
+                    fit: BoxFit.cover
+                ),
               ),
               SafeArea(
                 child: Column(
