@@ -11,7 +11,11 @@ class MockApiService implements ApiService {
   Map<String, dynamic>? response;
 
   @override
-  Future<Map<String, dynamic>> get(ApiEndpoint endpoint, {Map<String, String>? params}) async {
+  Future<Map<String, dynamic>> get(
+    ApiEndpoint endpoint, {
+    Map<String, String>? params,
+    Duration timeout = const Duration(seconds: 10),
+  }) async {
     return response!;
   }
 }

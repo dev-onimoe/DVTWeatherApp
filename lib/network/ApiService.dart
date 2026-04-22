@@ -11,8 +11,10 @@ class ApiService {
   Future<Map<String, dynamic>> get(
       ApiEndpoint endpoint, {
         Map<String, String>? params,
+        Duration timeout = const Duration(seconds: 10),
       }) async {
     final client = HttpClient();
+    client.connectionTimeout = timeout;
 
     try {
       final uri = endpoint.buildUri(
@@ -20,10 +22,10 @@ class ApiService {
         queryParams: params,
       );
 
-      final request = await client.getUrl(uri);
-      final response = await request.close();
+      final request = await client.getUrl(uri).timeout(timeout);
+      final response = await request.close().timeout(timeout);
 
-      final responseBody = await response.transform(utf8.decoder).join();
+      final responseBody = await response.transform(utf8.decoder).join().timeout(timeout);
 
       if (response.statusCode != 200) {
         throw HttpException(
