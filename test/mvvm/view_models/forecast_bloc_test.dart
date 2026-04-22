@@ -11,6 +11,9 @@ class MockForecastRepository implements ForecastRepository {
   @override
   ApiService get api => throw UnimplementedError();
 
+  @override
+  String get apiKey => throw UnimplementedError();
+
   Future<Forecast>? result;
   Object? error;
 

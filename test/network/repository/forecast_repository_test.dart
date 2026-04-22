@@ -25,7 +25,7 @@ void main() {
 
   setUp(() {
     mockApi = MockApiService();
-    repository = ForecastRepository(mockApi);
+    repository = ForecastRepository(mockApi, apiKey: 'test_key');
   });
 
   group('ForecastRepository', () {

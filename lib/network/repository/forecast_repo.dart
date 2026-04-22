@@ -6,15 +6,20 @@ import '../constants.dart';
 
 class ForecastRepository {
   final ApiService api;
+  final String apiKey;
 
-  ForecastRepository(this.api);
+  ForecastRepository(this.api, {this.apiKey = Constants.apiKey});
 
   Future<Forecast> fetchForecast(String city) async {
+    if (apiKey.isEmpty) {
+      throw Exception('API Key is missing. Please provide it via --dart-define=OPEN_WEATHER_API_KEY=your_key');
+    }
+
     final json = await api.get(
       ApiEndpoint.forecast,
       params: {
         'q': city,
-        'appid': Constants.apiKey,
+        'appid': apiKey,
         'units': 'metric',
       },
     );
