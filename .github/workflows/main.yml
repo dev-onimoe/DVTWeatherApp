@@ -24,6 +24,19 @@ jobs:
       - name: Analyze and Lint
         run: flutter analyze --fatal-infos --fatal-warnings
 
+      - name: Set up Android SDK
+        uses: android-actions/setup-android@v3
+
+      - name: Add sdkmanager to PATH
+        run: echo "$ANDROID_HOME/cmdline-tools/latest/bin" >> $GITHUB_PATH
+
+      - name: Accept licenses
+        run: yes | sdkmanager --licenses
+
+      - name: Install SDK components
+        run: |
+          sdkmanager "ndk;30.0.14904198"  
+
       - name: Accept Android licenses
         run: yes | sdkmanager --licenses
 
