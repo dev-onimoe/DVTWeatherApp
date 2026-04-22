@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assessment/helpers/app_assets.dart';
+import 'package:flutter_assessment/helpers/parse_helpers/number_helpers.dart';
 import 'package:flutter_assessment/helpers/view_helpers/textstyle_helpers.dart';
 
 import '../../models/forecast_item.dart';
@@ -24,24 +25,29 @@ class TemperatureCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(ScreenConstants.padding),
         child: Column(
-            spacing: ScreenConstants.column_spacing,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Text(
-                forecastItem.day,
-                style: AppTextStyles.card_title,
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: ScreenConstants.column_spacing),
+                child: Text(
+                  forecastItem.day,
+                  textAlign: TextAlign.start,
+                  style: AppTextStyles.card_title,
+                ),
               ),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: ScreenConstants.padding),
                 child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Image.asset(
                         AppElments.sun,
-                        width: 70,
-                        height: 70,
+                        width: 80,
+                        height: 80,
                       ),
                       Text(
-                        '${forecastItem.main.temp}°',
+                        forecastItem.main.temp.parsedDegreeValue(),
                         style: AppTextStyles.temperature,
                       )
                     ]
@@ -51,5 +57,11 @@ class TemperatureCard extends StatelessWidget {
         ),
       )
     );
+  }
+}
+
+extension on double {
+  String parsedDegreeValue() {
+    return '${this.round()}°';
   }
 }

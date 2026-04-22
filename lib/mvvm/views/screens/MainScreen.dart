@@ -50,41 +50,48 @@ class _MainScreenState extends State<MainScreen> {
         }
 
         final forecast = state.data!;
-        return Stack(
-          children: [
-            Container(
-              constraints: AppBoxConstraint.fullScreen,
-              child: Image.asset(Background.sunny),
-            ),
-            Column(
-              spacing: ScreenConstants.column_spacing,
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(ScreenConstants.padding),
-                  child: Text(
-                    ScreenConstants.title,
-                    textAlign: TextAlign.start,
-                    style: AppTextStyles.title,
-                  ),
-                ),
-                SizedBox(
-                    height: 1,
-                    child: Container(color: Colors.white)
-                ),
-                Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: ScreenConstants.padding),
-                    child: ListView.builder(
-                        itemCount: forecast.items.length,
-                        itemBuilder: (context, index) {
-                          return TemperatureCard(forecastItem: forecast.items[index]);
-                        }
+        return Scaffold(
+          body: Stack(
+            children: [
+              Container(
+                constraints: AppBoxConstraint.fullScreen,
+                child: Image.asset(Background.sunny, fit: BoxFit.cover),
+              ),
+              SafeArea(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(ScreenConstants.padding),
+                      child: Text(
+                        ScreenConstants.title,
+                        textAlign: TextAlign.start,
+                        style: AppTextStyles.title,
+                      ),
+                    ),
+                    SizedBox(
+                        height: 1,
+                        child: Container(color: Colors.white)
+                    ),
+                    Expanded(
+                        child: ListView.builder(
+                          padding: const EdgeInsets.all(ScreenConstants.padding*2),
+                          itemCount: forecast.items.length,
+                          itemBuilder: (context, index) {
+                            return Padding(
+                              padding: const EdgeInsets.symmetric(vertical: ScreenConstants.card_spacing),
+                              child: TemperatureCard(forecastItem: forecast.items[index]),
+                            );
+                          }
+                        )
                     )
-                )
-              ],
-            )
-          ],
+                  ],
+                ),
+              )
+            ],
+          ),
         );
       }
     );

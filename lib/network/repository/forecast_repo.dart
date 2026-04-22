@@ -18,6 +18,7 @@ class ForecastRepository {
       },
     );
 
+    Forecast forecast = Forecast.fromJson(json);
     return Forecast.fromJson(json);
   }
 }
