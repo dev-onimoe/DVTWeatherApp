@@ -2,6 +2,8 @@ name: Flutter CI
 
 on:
   push:
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   build:
@@ -25,8 +27,8 @@ jobs:
       - name: Analyze project source
         run: flutter analyze
 
-      - name: Run tests
-        run: flutter test --coverage
-
       - name: Build APK
         run: flutter build apk --debug
+
+      - name: Run tests
+        run: flutter test --coverage
