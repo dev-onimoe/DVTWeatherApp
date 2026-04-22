@@ -11,7 +11,7 @@ class ApiService {
   Future<Map<String, dynamic>> get(
       ApiEndpoint endpoint, {
         Map<String, String>? params,
-        Duration timeout = const Duration(seconds: 10),
+        Duration timeout = const Duration(seconds: 60),
       }) async {
     final client = HttpClient();
     client.connectionTimeout = timeout;
