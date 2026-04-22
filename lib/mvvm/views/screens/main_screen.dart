@@ -87,7 +87,7 @@ class _MainScreenState extends State<MainScreen> {
                           itemCount: forecast.items.length,
                           itemBuilder: (context, index) {
                             return Padding(
-                              padding: const EdgeInsets.symmetric(vertical: ScreenConstants.card_spacing),
+                              padding: const EdgeInsets.symmetric(vertical: ScreenConstants.cardSpacing),
                               child: TemperatureCard(forecastItem: forecast.items[index]),
                             );
                           }

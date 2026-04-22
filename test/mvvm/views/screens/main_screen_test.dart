@@ -5,7 +5,7 @@ import 'package:flutter_assessment/mvvm/models/forecast_item.dart';
 import 'package:flutter_assessment/mvvm/models/forecast_main.dart';
 import 'package:flutter_assessment/mvvm/view_models/forecast_bloc.dart';
 import 'package:flutter_assessment/mvvm/view_models/forecast_state.dart';
-import 'package:flutter_assessment/mvvm/views/screens/MainScreen.dart';
+import 'package:flutter_assessment/mvvm/views/screens/main_screen.dart';
 import 'package:flutter_assessment/network/repository/forecast_repo.dart';
 import 'package:flutter_assessment/services/location_services.dart';
 import 'package:flutter_test/flutter_test.dart';

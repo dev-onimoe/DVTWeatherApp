@@ -10,11 +10,11 @@ void main() {
 
     test('buildUri returns correct Uri', () {
       final uri = ApiEndpoint.forecast.buildUri(
-        baseUrl: Constants.BASE_URL,
+        baseUrl: Constants.baseUrl,
         queryParams: {'q': 'Lagos'},
       );
 
-      expect(uri.toString(), contains(Constants.BASE_URL));
+      expect(uri.toString(), contains(Constants.baseUrl));
       expect(uri.toString(), contains('/data/2.5/forecast'));
       expect(uri.queryParameters['q'], 'Lagos');
     });

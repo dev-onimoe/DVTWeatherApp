@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Run flutter format and auto-fix linting issues before committing
+echo "Running pre-commit hooks..."
+
+echo "Applying formatting..."
+flutter format .
+
+echo "Applying lint fixes..."
+dart fix --apply
+
+echo "Analyzing code..."
+flutter analyze
+
+if [ $? -ne 0 ]; then
+  echo "Analysis failed. Please fix the issues before committing."
+  exit 1
+fi
+
+echo "Pre-commit hooks passed!"
+exit 0

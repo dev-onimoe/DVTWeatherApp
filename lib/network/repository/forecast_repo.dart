@@ -1,6 +1,6 @@
 import '../../mvvm/models/forecast.dart';
 import '../../mvvm/models/forecast_item.dart';
-import '../ApiService.dart';
+import '../api_service.dart';
 import '../api_endpoints.dart';
 import '../constants.dart';
 
@@ -14,7 +14,7 @@ class ForecastRepository {
       ApiEndpoint.forecast,
       params: {
         'q': city,
-        'appid': Constants.API_KEY,
+        'appid': Constants.apiKey,
         'units': 'metric',
       },
     );

@@ -15,10 +15,10 @@ class FontFamily {
 
 class ScreenConstants {
   static const title = "5 Day Forecast";
-  static const card_height = 100.0;
-  static const card_spacing = 16.0;
-  static const card_corner_raduis = 16.0;
-  static const column_spacing = 10.0;
+  static const cardHeight = 100.0;
+  static const cardSpacing = 16.0;
+  static const cardCornerRadius = 16.0;
+  static const columnSpacing = 10.0;
   static const padding = 16.0;
 }
 

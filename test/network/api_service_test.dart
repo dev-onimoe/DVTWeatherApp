@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:flutter_assessment/network/ApiService.dart';
+import 'package:flutter_assessment/network/api_service.dart';
 import 'package:flutter_assessment/network/api_endpoints.dart';
 import 'package:flutter_test/flutter_test.dart';
 

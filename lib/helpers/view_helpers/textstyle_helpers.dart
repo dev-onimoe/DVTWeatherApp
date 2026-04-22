@@ -9,7 +9,7 @@ extension AppTextStyles on TextStyle {
     fontFamily: FontFamily.poppins
   );
 
-  static const TextStyle card_title = TextStyle(
+  static const TextStyle cardTitle = TextStyle(
       fontSize: 16,
       fontWeight: FontWeight.w600,
       color: Colors.black,

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_assessment/mvvm/views/screens/MainScreen.dart';
+import 'package:flutter_assessment/mvvm/views/screens/main_screen.dart';
 
 import 'app_dependencies.dart';
 

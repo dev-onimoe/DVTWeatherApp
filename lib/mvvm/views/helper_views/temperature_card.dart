@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_assessment/helpers/app_assets.dart';
-import 'package:flutter_assessment/helpers/parse_helpers/number_helpers.dart';
 import 'package:flutter_assessment/helpers/view_helpers/textstyle_helpers.dart';
 
 import '../../models/forecast_item.dart';
@@ -9,18 +8,18 @@ class TemperatureCard extends StatelessWidget {
 
   final ForecastItem forecastItem;
 
-  const TemperatureCard({required this.forecastItem});
+  const TemperatureCard({super.key, required this.forecastItem});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       constraints: BoxConstraints(
         minWidth: double.infinity,
-        minHeight: ScreenConstants.card_height
+        minHeight: ScreenConstants.cardHeight
       ),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(ScreenConstants.card_corner_raduis)
+        borderRadius: BorderRadius.circular(ScreenConstants.cardCornerRadius)
       ),
       child: Padding(
         padding: const EdgeInsets.all(ScreenConstants.padding),
@@ -29,11 +28,11 @@ class TemperatureCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: ScreenConstants.column_spacing),
+                padding: const EdgeInsets.symmetric(horizontal: ScreenConstants.columnSpacing),
                 child: Text(
                   forecastItem.day,
                   textAlign: TextAlign.start,
-                  style: AppTextStyles.card_title,
+                  style: AppTextStyles.cardTitle,
                 ),
               ),
               Padding(
@@ -62,6 +61,6 @@ class TemperatureCard extends StatelessWidget {
 
 extension on double {
   String parsedDegreeValue() {
-    return '${this.round()}°';
+    return '${round()}°';
   }
 }
