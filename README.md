@@ -1,5 +1,7 @@
 # Weather App
 
+![Weather App Screenshot](screenshot.gif)
+
 A streamlined weather application that provides a 5-day forecast based on the user's current location.
 
 ## Architecture & Conventions
