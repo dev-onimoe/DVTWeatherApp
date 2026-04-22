@@ -14,6 +14,6 @@ enum ApiEndpoint {
     required String baseUrl,
     Map<String, String>? queryParams,
   }) {
-    return Uri.parse(Constants.BASE_URL + path).replace(queryParameters: queryParams);
+    return Uri.parse(Constants.baseUrl + path).replace(queryParameters: queryParams);
   }
 }
